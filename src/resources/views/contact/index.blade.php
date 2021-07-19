@@ -1,13 +1,35 @@
-@if ( Session::has('sent'))
-    <div>
-        <p>{{old('name')}}さん、{{ session('sent') }}</p>
-    </div>
-@endif
+<!--@extends('layout')-->
+@section('content')
+    <form method="POST" action="{{ route('contact.confirm') }}">
+        @csrf
 
-<form action="{{ url('contact') }}" method="POST">
-    @csrf
+        <label>メールアドレス</label>
+        <input
+                name="email"
+                value="{{ old('email') }}"
+                type="text">
+        @if ($errors->has('email'))
+            <p class="error-message">{{ $errors->first('email') }}</p>
+        @endif
 
-    <p>名前：<input type="text" name="name"></p>
+        <label>タイトル</label>
+        <input
+                name="title"
+                value="{{ old('title') }}"
+                type="text">
+        @if ($errors->has('title'))
+            <p class="error-message">{{ $errors->first('title') }}</p>
+        @endif
 
-    <input type="submit" value="送信">
-</form>
+
+        <label>お問い合わせ内容</label>
+        <textarea name="body">{{ old('body') }}</textarea>
+        @if ($errors->has('body'))
+            <p class="error-message">{{ $errors->first('body') }}</p>
+        @endif
+
+        <button type="submit">
+            入力内容確認
+        </button>
+    </form>
+@endsection
