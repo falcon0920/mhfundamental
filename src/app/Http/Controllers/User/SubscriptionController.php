@@ -26,8 +26,8 @@ class SubscriptionController extends Controller
                 'currency'    => 'jpy',                               // 単位
                 'quantity'    => 1,                                   // 数量
             ]],
-            'success_url'          => 'https://localhost:8000//success', // 成功時リダイレクトURL
-            'cancel_url'           => 'https://localhost:8000/cancel',  // 失敗時リダイレクトURL
+            'success_url'          => 'http://localhost:8000/user/subscription/success', // 成功時リダイレクトURL
+            'cancel_url'           => 'http://localhost:8000/user/subscription/cancel',  // 失敗時リダイレクトURL
         ]);
         $token = $request->stripeToken;
         $user = Auth::user();

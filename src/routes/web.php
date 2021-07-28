@@ -32,5 +32,11 @@ Route::prefix('user')->middleware(['auth'])->group(function() {
     Route::post('ajax/subscription/resume', 'User\Ajax\SubscriptionController@resume');
     Route::post('ajax/subscription/change_plan', 'User\Ajax\SubscriptionController@change_plan');
     Route::post('ajax/subscription/update_card', 'User\Ajax\SubscriptionController@update_card');
+    Route::get('/subscription/success', function () {
+        return view('success');
+    });
+    Route::get('/subscription/cancel', function () {
+        return view('cancel');
+    });
 
 });
