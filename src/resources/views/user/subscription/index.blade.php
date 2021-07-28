@@ -1,7 +1,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-    const publicKey = 'pk_test_51J7i1pAYe8iVGfKLzFCascuAj5lygx0BGsjIvpOBS6YWRhQ9mQ7C2oAjgpCMaY9WvarScXt7WrMK1Rw5GhPbaDjQ00aXkVQTiQ';
+    const publicKey = 'pk_live_51J7i1pAYe8iVGfKL1h9uALfHGzvIGWqPaYWThFdZaE7oCPqMCx2K5fkfW3xy2XzjVghMAsbd5waQZtorZK0cMC6b00bxibzicz';
     var stripe = Stripe(publicKey);
     // 4. 決済ボタンが押下されたら決済画面にリダイレクトする
     function onClick() {
