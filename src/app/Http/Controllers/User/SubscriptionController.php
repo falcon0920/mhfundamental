@@ -2,7 +2,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subscriptions;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session as Checkout;
 use Stripe\StripeClient;
 
@@ -10,6 +13,7 @@ class SubscriptionController extends Controller
 {
     public function index(Request $request)
     {
+        \Stripe\Stripe::setApiKey(env("STRIPE_SECRET"));
         $stripe = new StripeClient(env("STRIPE_SECRET"));
 
         $session = $stripe->checkout->sessions->create([
@@ -22,11 +26,27 @@ class SubscriptionController extends Controller
                 'currency'    => 'jpy',                               // 単位
                 'quantity'    => 1,                                   // 数量
             ]],
-            'success_url'          => 'https://example.com/checkout/success.php', // 成功時リダイレクトURL
-            'cancel_url'           => 'https://example.com/checkout/cancel.php',  // 失敗時リダイレクトURL
+            'success_url'          => 'https://localhost:8000//success', // 成功時リダイレクトURL
+            'cancel_url'           => 'https://localhost:8000/cancel',  // 失敗時リダイレクトURL
         ]);
+        $token = $request->stripeToken;
+        $user = Auth::user();
+        try {
+            $customer = \Stripe\Customer::create([
+                'card' => $token,
+                'name' => $user->name,
+                'description' => $user->id
+            ]);
+        }catch(\Stripe\Exception\CardException $e) {
+            return false;
+        }
 
-        $user = $request->user();
+        $subscription = new Subscriptions();
+        $subscription->fill([
+            'user_id' => Auth::id(),
+            'stripe_id' => $customer -> id
+        ]);
+        $subscription->save();
         return view('user.subscription.index')->with([
             'intent' => $user,
             'session' => $session

@@ -1116,16 +1116,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.11.0",
+            "version": "v4.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "fe14cf3672a149364fb66dfe11bf6549af899f94"
+                "reference": "6608f01670c3cc5079e18c1dab1104e002579143"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fe14cf3672a149364fb66dfe11bf6549af899f94",
-                "reference": "fe14cf3672a149364fb66dfe11bf6549af899f94",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6608f01670c3cc5079e18c1dab1104e002579143",
+                "reference": "6608f01670c3cc5079e18c1dab1104e002579143",
                 "shasum": ""
             },
             "require": {
@@ -1166,9 +1166,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.11.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.12.0"
             },
-            "time": "2021-07-03T13:36:55+00:00"
+            "time": "2021-07-21T10:44:31+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1542,16 +1542,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.89.0",
+            "version": "v7.91.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "fea12a15d46d15c017b3fe76f78aa7c983cb5928"
+                "reference": "bb7db27140858833ecc2a95de94763b5a120bc5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/fea12a15d46d15c017b3fe76f78aa7c983cb5928",
-                "reference": "fea12a15d46d15c017b3fe76f78aa7c983cb5928",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/bb7db27140858833ecc2a95de94763b5a120bc5d",
+                "reference": "bb7db27140858833ecc2a95de94763b5a120bc5d",
                 "shasum": ""
             },
             "require": {
@@ -1597,9 +1597,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.89.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.91.0"
             },
-            "time": "2021-07-14T17:24:56+00:00"
+            "time": "2021-07-22T18:05:48+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5139,6 +5139,7 @@
                 "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
                 "source": "https://github.com/sebastianbergmann/resource-operations/tree/master"
             },
+            "abandoned": true,
             "time": "2015-07-28T20:34:47+00:00"
         },
         {
